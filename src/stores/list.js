@@ -43,7 +43,7 @@ export const useListStore = defineStore("list", {
       this.items[i].edit = false;
     },
     setCurrentItem() {
-      this.currentItem = this.items.shift().name;
+      this.currentItem = this.break ? "休息一下" : this.items.shift().name;
     },
     countdown() {
       this.timeleft--;
@@ -56,13 +56,13 @@ export const useListStore = defineStore("list", {
         });
       }
       this.currentItem = "";
-      if (this.items.lenght > 0) {
+      if (this.items.length > 0) {
         this.break = !this.break;
       }
       this.timeleft = this.break ? timeBreak : time;
     },
     delFinishItem(id) {
-      const i = this.finishedItems.findIndex((item) => item.id == id);
+      const i = this.finishedItems.findIndex((item) => item.id === id);
       this.finishedItems.splice(i, 1);
     },
   },
