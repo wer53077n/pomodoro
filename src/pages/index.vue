@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" sm="6">
         <h1>目前事項 {{ currentText }}</h1>
         <h2>剩餘時間 {{ currentTime }}</h2>
       </v-col>
@@ -13,16 +13,19 @@
             status === STATUS.COUNTING ||
             (currentItem.length === 0 && items.length === 0)
           "
+          style="background: #57c51b; margin-right: 0.5rem"
         ></v-btn>
         <v-btn
           icon="mdi-pause"
           :disabled="status !== STATUS.COUNTING"
           @click="pauseTimer"
+          style="background: #57c51b; margin-right: 0.5rem"
         ></v-btn>
         <v-btn
           icon="mdi-skip-next"
           :disabled="currentItem.length === 0"
           @click="finishTimer"
+          style="background: #57c51b; margin-right: 0.5rem"
         ></v-btn>
       </v-col>
     </v-row>

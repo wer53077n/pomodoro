@@ -5,7 +5,7 @@
         <h1 class="text-center">鈴聲設定</h1>
       </v-col>
       <v-col cols="12">
-        <v-table>
+        <v-table style="background: #57c51b">
           <thead>
             <tr>
               <th>名稱</th>
@@ -17,7 +17,7 @@
             <tr v-for="alarm in alarms" :key="alarm.id">
               <td>{{ alarm.name }}</td>
               <td>
-                <audio :src="alarm.file" controls></audio>
+                <audio :src="alarm.file" controls class="custom-audio"></audio>
               </td>
               <td>
                 <v-radio-group v-model="selectedAlarm">
@@ -50,5 +50,12 @@ const { alarms, selectedAlarm } = storeToRefs(settings);
 <style scoped lang="scss">
 :deep(.v-input__details) {
   display: none;
+}
+.custom-audio {
+  color: #87d65c; /* 例如：黑色控制項 */
+
+  &::-webkit-media-controls-panel {
+    background-color: #87d65c; /* 改變控制面板背景顏色 */
+  }
 }
 </style>

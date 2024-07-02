@@ -17,13 +17,13 @@
           ref="newItemTextField"
         ></v-text-field>
         <v-table>
-          <thead>
+          <thead style="background: #57c51b">
             <tr>
               <th>名稱</th>
               <th>操作</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="background: #57c51b">
             <tr v-for="(item, i) in items" :key="item.id">
               <td>
                 <span v-show="!item.edit">{{ item.name }}</span>
@@ -38,17 +38,31 @@
               </td>
               <td>
                 <template v-if="!item.edit">
-                  <v-btn icon="mdi-pencil" @click="editItem(item.id)"></v-btn>
-                  <v-btn icon="mdi-delete" @click="delItem(item.id)"></v-btn>
+                  <v-btn
+                    icon="mdi-pencil"
+                    @click="editItem(item.id)"
+                    style="background: #87d65c"
+                    variant="text"
+                  ></v-btn>
+                  <v-btn
+                    icon="mdi-delete"
+                    @click="delItem(item.id)"
+                    style="background: #87d65c"
+                    variant="text"
+                  ></v-btn>
                 </template>
                 <template v-else>
                   <v-btn
                     icon="mdi-check"
                     @click="onEditInputSubmit(item.id, i)"
+                    style="background: #87d65c"
+                    variant="text"
                   ></v-btn>
                   <v-btn
                     icon="mdi-undo"
                     @click="cancelEditItem(item.id)"
+                    style="background: #87d65c"
+                    variant="text"
                   ></v-btn>
                 </template>
               </td>
@@ -60,7 +74,7 @@
         <h1 class="text-center">完成事項</h1>
       </v-col>
       <v-col cols="12">
-        <v-table>
+        <v-table style="background: #57c51b">
           <thead>
             <tr>
               <th>名稱</th>
@@ -74,6 +88,8 @@
                 <v-btn
                   icon="mdi-delete"
                   @click="delFinishItem(item.id)"
+                  style="background: #87d65c"
+                  variant="text"
                 ></v-btn>
               </td>
             </tr>
